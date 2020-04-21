@@ -1,15 +1,14 @@
 import React from "react";
+import useLocalStorage from "./hooks/useLocalStorage";
 
-function playerList(props) {
+const playerList = props => {
+    const { name, country } = props;
     return (
-      <div>
-      {
-        props.player.map((players) => (
-          <div>
-            <h1>{players.name}</h1>
-          </div>
-      ))};
-    </div>
-)};
+        <div>
+            <h3>{name}</h3>
+            <p>{country}</p>
+        </div>
+    )
+}
 
-export default playerList
+export default playerList; 

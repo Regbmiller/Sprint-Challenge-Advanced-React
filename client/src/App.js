@@ -1,44 +1,31 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import playerList from './components/playerList';
+import React from "react";
+import Navbar from "./components/Navbar";
 
-function App() {
-  const [player, setPlayer] = useState();
- 
-  useEffect(() => {
-    const getPlayers = () => {
-
-      axios
-        .get(`http://localhost:5000/api/players`)
-        .then(response => {
-          setPlayer(response.data);
-          console.log(response.data)
-        })
-        .catch(error => {
-          console.error(error);
-        });
-
-        getPlayers();
-  }, []});
-  
-  if (!playerList) {
-    return <div>Loading player information...</div>;
+class App extends React.Component {
+  state = {
+     players: []
   }
-  
-  const { player } = player;
-  
-  return (
-    <div className="save-wrapper">
-      <div className="player-card">
-          Names: <em>{players}</em>
-      </div>
-        {players.map(players => (
-          <div key={players} className="player-map">
-            {players}
-          </div>
-        ))}
-      </div>
-    );
-  } 
+
+  componentDidMount() {
+    fetch(`http://localhost:5000/api/players`)
+      .then((res) => res.json())
+      .then((res) => this.setState({ players: res }))
+      .catch((err) => console.log(err))
+    }
+ 
+    render() {
+      const { players } = this.state;
+      return (
+        <div      >
+         <h1>Players</h1> 
+         <Navbar />
+          {players.map((player) => (
+            <div>
+              <h2>Player: {player.name}</h2>
+            </div>
+          ))}
+       </div>
+      )}
+};
 
 export default App;
