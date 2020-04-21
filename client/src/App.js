@@ -1,5 +1,5 @@
 import React from "react";
-import Navbar from "./components/Navbar";
+//import Navbar from "./components/Navbar";
 
 class App extends React.Component {
   state = {
@@ -18,7 +18,7 @@ class App extends React.Component {
       return (
         <div      >
          <h1>Players</h1> 
-         <Navbar />
+         /*navbar*/
           {players.map((player) => (
             <div>
               <h2>Player: {player.name}</h2>

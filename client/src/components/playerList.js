@@ -1,7 +1,7 @@
 import React from "react";
 import useLocalStorage from "./hooks/useLocalStorage";
 
-const playerList = props => {
+export const playerList = props => {
     const { name, country } = props;
     return (
         <div>
@@ -11,4 +11,4 @@ const playerList = props => {
     )
 }
 
-export default playerList; 
+//export default playerList; 
