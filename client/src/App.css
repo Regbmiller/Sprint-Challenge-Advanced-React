@@ -30,4 +30,12 @@
   to {
     transform: rotate(360deg);
   }
+
 }
+    .dark-mode {
+  
+      background:	#000000;
+    
+      color: white;
+    
+    }
