@@ -34,9 +34,8 @@
 }
 
 .dark-mode {
-
   color: #fff;
-  background-color: #313843;
+  background-color: #000000;
 }
 
 .dark-mode__toggle {
